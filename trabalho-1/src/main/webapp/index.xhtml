@@ -5,27 +5,21 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Gerencia de Produtos</title>
     </h:head>
     <h:body>
-              
         <h:form>  
             <p:menubar style="margin:0px 0px 10px 0px;">
-                <p:menuitem value="Produtos" url="faces/gerenciar-produto.xhtml" icon="pi pi-times">
+                <p:menuitem value="Produtos" url="faces/index.xhtml" icon="pi pi-times">
                 </p:menuitem>
                 <p:menuitem value="Categoria" url="faces/gerenciar-categoria.xhtml" icon="pi pi-times">
-                </p:menuitem>
-               
-                <f:facet name="options">
-                    <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
-                    <p:commandButton type="button" value="Logout" icon="pi pi-home" />
-                </f:facet>
+                </p:menuitem>               
             </p:menubar>
         </h:form>
         
-        <h:form id="formCadastro">
-            <p:fieldset legend="Dashboard">
-                <p:toolbar>
+        <h:form>
+            <p:fieldset legend="Produtos">
+                 <p:toolbar>
                     <p:toolbarGroup>
                         <p:commandButton value="Novo" actionListener="#{produtoBean.novo()}"
                                          update="@form"></p:commandButton>
@@ -33,10 +27,8 @@
                         <p:commandButton value="Pesquisar" actionListener="#{produtoBean.pesquisar()}"
                                          update="@form"></p:commandButton>
 
-                        <p:commandButton value="Salvar" actionListener="#{produtoBean.adicionarProduto()}"
-                                         update="" 
+                        <p:commandButton value="Salvar" update="@form" actionListener="#{produtoBean.adicionarProduto()}" 
                                          rendered="#{produtoBean.statusTela != 'PESQUISANDO'}"></p:commandButton>
-
                     </p:toolbarGroup>
                 </p:toolbar>
 
@@ -51,16 +43,25 @@
 
                     <p:outputLabel value="Nome"></p:outputLabel>
                     <p:inputText value="#{produtoBean.produto.nome}"></p:inputText>
+                     
+                    
                     <p:outputLabel value="Marca"></p:outputLabel>
                     <p:inputText value="#{produtoBean.produto.marca}"></p:inputText>
-                    <p:outputLabel value="Codigó de Barras"></p:outputLabel>
+                    <p:outputLabel value="Codigos de barras"></p:outputLabel>
                     <p:inputText value="#{produtoBean.produto.codigoBarras}"></p:inputText>
-                    <p:outputLabel value="Unidade de Medida"></p:outputLabel>
+                    <p:outputLabel value="Unidade de medida"></p:outputLabel>
                     <p:inputText value="#{produtoBean.produto.unidadeMedida}"></p:inputText>
-                    
+                    <p:outputLabel value="Categoria"></p:outputLabel>
+                    <p:selectOneMenu value="#{produtoBean.produto.categoria}">
+                        <f:selectItem itemLabel="Selecione" itemValue=""></f:selectItem>            
+                        <f:selectItems value="#{produtoBean.categorias}" var="cat"
+                                       itemLabel="#{cat.nome}" itemValue="#{cat}"
+                                       ></f:selectItems>
+                    </p:selectOneMenu>
+ 
                 </p:panelGrid>
 
-                <p:dataTable value="#{produtoBean.produto}" var="prod"
+                <p:dataTable value="#{produtoBean.produtos}" var="prod"
                              rendered="#{produtoBean.statusTela == 'PESQUISANDO'}">
 
                     <p:column headerText="ID">
@@ -74,6 +75,9 @@
                     </p:column>
                     <p:column headerText="Código de Barras">
                         <h:outputText value="#{prod.codigoBarras}"></h:outputText>
+                    </p:column>
+                    <p:column headerText="Categoria">
+                        <h:outputText value="#{prod.categoria.nome}"></h:outputText>
                     </p:column>
                     <p:column>
                         <p:commandButton value="Delete" update="@form"

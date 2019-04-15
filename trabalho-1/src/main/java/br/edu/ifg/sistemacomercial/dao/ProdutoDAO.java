@@ -19,6 +19,7 @@ public class ProdutoDAO {
                 + " where id = ?";
         
         PreparedStatement  ps;
+        
         if(entity.getId() == null){
             ps = FabricadeConexao.getConexao().prepareStatement(sqlInsert);
         } else {
@@ -29,7 +30,7 @@ public class ProdutoDAO {
         ps.setString(2, entity.getMarca());
         ps.setString(3, entity.getCodigoBarras());
         ps.setString(4, entity.getUnidadeMedida());
-        ps.setInt(5, entity.getCategoria().getId());
+        ps.setLong(5, entity.getCategoria().getId());
         
         
         FabricadeConexao.getConexao().setAutoCommit(false);
@@ -48,24 +49,26 @@ public class ProdutoDAO {
     
     public List<Produto> listar() throws SQLException{
         String sqlQuery = "select p.id, p.nome, p.marca, p.codigo_barras,"
-                + " p.unidade_medida, c.id, c.nome from produto as p join categoria as c"
-                + "on = c.id = p.categoria_id";
+                + " p.unidade_medida, c.id as catid, c.nome as catnome from produto as p join categoria as c "
+                + " on c.id = p.categoria_id";
         PreparedStatement ps = FabricadeConexao.getConexao().prepareStatement(sqlQuery);
         //java.sql.ResultSet
         ResultSet rs = ps.executeQuery();
         List<Produto> produtos = new ArrayList<>();
         while(rs.next()){
             Produto produto = new Produto();
-            produto.setId(rs.getInt("p.id"));
-            produto.setNome(rs.getString("p.nome"));
-            produto.setMarca(rs.getString("p.marca"));
-            produto.setCodigoBarras(rs.getString("p.codigo_barras"));
-            produto.setUnidadeMedida(rs.getString("p.unidade_medida"));
+            produto.setId(rs.getInt("id"));
+            produto.setNome(rs.getString("nome"));
+            produto.setMarca(rs.getString("marca"));
+            produto.setCodigoBarras(rs.getString("codigo_barras"));
+            produto.setUnidadeMedida(rs.getString("unidade_medida"));
             
             Categoria categoria = new Categoria();
      
-            categoria.setNome(rs.getString("c.nome"));
+            categoria.setId(rs.getInt("catid"));
+            categoria.setNome(rs.getString("catnome"));
             
+            produto.setCategoria(categoria);
             
             produtos.add(produto);
         }

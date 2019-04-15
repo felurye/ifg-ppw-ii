@@ -22,7 +22,7 @@ public class CategoriaDAO {
             ps = FabricadeConexao.getConexao().prepareStatement(sqlInsert);
         } else {
             ps = FabricadeConexao.getConexao().prepareStatement(sqlUpdate);
-            ps.setLong(5, entity.getId());
+            ps.setLong(2, entity.getId());
         }
         ps.setString(1, entity.getNome());
         FabricadeConexao.getConexao().setAutoCommit(false);

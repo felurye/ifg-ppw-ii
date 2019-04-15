@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
+@ManagedBean
 @SessionScoped
-@Named
 public class CategoriaBean extends JsfUtil{
     
     private Categoria categoria;
@@ -83,32 +83,21 @@ public class CategoriaBean extends JsfUtil{
     }
     
     public CategoriaBean() {
-        Categoria c1 = new Categoria();
-        c1.setId(1);
-        c1.setNome("Higiene");
-        Categoria c2 = new Categoria();
-        c2.setId(2);
-        c2.setNome("Limpeza");
-        Categoria c3 = new Categoria();
-        c3.setId(3);
-        c3.setNome("Industrializado");
-        
-        categorias = Arrays.asList(c1,c2,c3);
-      
+              
     }
 
-    public Categoria getProduto() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setProduto(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
     public List<Categoria> getCategorias() {
         return categorias;
     }
-    
+
     public String getStatusTela() {
         return statusTela.name();
     }
