@@ -13,9 +13,9 @@ public class ProdutoDAO {
 
     public void salvar(Produto entity) throws SQLException{
         //Ordem das colunas: id, nome, marca, codigo_barras, unidade_medida, categoria_id
-        String sqlInsert = "insert into produto (id, nome, marca, codigo_barras, unidade_medida, categoria_id"
-                + ") values (default, ?, ?, ?, ?, ?)";
-        String sqlUpdate = "update usuario set nome = ?, marca = ?, codigo_barras = ?, unidade_medida = ?, categoria_id = ?"
+        String sqlInsert = "insert into produto (id, nome, marca, codigo_barras, unidade_medida, categoria_id) "
+                + " values (default, ?, ?, ?, ?, ?)";
+        String sqlUpdate = "update produto set nome = ?, marca = ?, codigo_barras = ?, unidade_medida = ?, categoria_id = ?"
                 + " where id = ?";
         
         PreparedStatement  ps;
@@ -24,7 +24,7 @@ public class ProdutoDAO {
             ps = FabricadeConexao.getConexao().prepareStatement(sqlInsert);
         } else {
             ps = FabricadeConexao.getConexao().prepareStatement(sqlUpdate);
-            ps.setLong(5, entity.getId());
+            ps.setLong(6, entity.getId());
         }
         ps.setString(1, entity.getNome());
         ps.setString(2, entity.getMarca());
