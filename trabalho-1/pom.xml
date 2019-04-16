@@ -56,6 +56,11 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.primefaces.themes</groupId>
+            <artifactId>all-themes</artifactId>
+            <version>1.0.10</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -125,11 +130,11 @@
         </plugins>
     </build>
 
-    <!--<repositories>
+    <repositories>
         <repository>
             <id>repository</id>
-            <url>http://10.8.233.73/repositorio</url>
+            <url>http://repository.primefaces.org</url>
         </repository>
-    </repositories>-->
+    </repositories>
 
 </project>
