@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Sistema Comercial#{empty tituloPagina?'':' - '.concat(tituloPagina)}</title>
+        <meta name="viewport" content="width=device-width"></meta>
+        <h:outputStylesheet library="css" name="reset.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="ajustes.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="estilo.css"></h:outputStylesheet>
+    </h:head>
+    <h:body class="sidebar-active">
+        <header>
+            <div>
+                <a href="#" class="menu-button-toggle">
+                    <i class="fa fa-navicon"></i>
+                </a>
+            </div>
+            <div>
+                <h:graphicImage class="logo" library="imagens" name="logo.png"></h:graphicImage>
+            </div>
+            <div class="extras">
+                <div class="extras-item">
+                    <a href="#"><i class="fa fa-bell"></i></a>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="sidebar sidebar-mob">
+            <div class="usuario">
+                <div class="foto">
+                    <img src="https://www.gravatar.com/avatar/382d79b61a34ba561e61ef85d8119d25?s=56&amp;d=mp"></img>
+                </div>
+                <div class="nome">
+                    João Pereira da Silva
+                </div>
+            </div>
+            <a href="index.xhtml" class="sidebar-item #{view.viewId.endsWith('index.xhtml')?'active':''}">
+                <i class="fa fa-fw fa-dashboard"></i>Dashboard
+                
+            </a>
+            <a href="gerenciar-produto.xhtml" class="sidebar-item #{view.viewId.endsWith('gerenciar-produto.xhtml')?'active':''}">
+                <i class="fa fa-fw fa-cubes"></i>Gerenciar Produto
+            </a>
+            <a href="gerenciar-categoria.xhtml" class="sidebar-item #{view.viewId.endsWith('gerenciar-categoria.xhtml')?'active':''}">
+                <i class="fa fa-fw fa-tags"></i>Gerenciar Categoria
+            </a>
+            <a href="gerenciar-usuario.xhtml" class="sidebar-item #{view.viewId.endsWith('gerenciar-usuario.xhtml')?'active':''}">
+                <i class="fa fa-fw fa-users"></i>Gerenciar Usuarios
+            </a>
+        </nav>
+        
+        <main>
+            <ui:insert></ui:insert>
+        </main>
+        
+        <footer>
+            <div class="copyright">
+                Sicom - Sistema Comercial do TADS©
+            </div>
+        </footer>
+        
+        <!-- Componentes Extras -->
+        <h:form>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="fa fa-trash-o" />
+                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="fa fa-undo" />
+            </p:confirmDialog> 
+        </h:form>
+        
+        <h:outputScript library="primefaces" name="jquery/jquery.js"></h:outputScript>
+        <h:outputScript library="js" name="geral.js"></h:outputScript>
+    </h:body>
+</html>
+
