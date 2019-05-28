@@ -32,7 +32,7 @@ public class Usuario implements Serializable{
     @Column(name="data_cadastro")
     private Date dataCadastro;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="data_desativacao")
+    @Column(name = "data_desativacao")
     private Date dataDesativacao;
     
     @ManyToMany

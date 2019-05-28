@@ -1,9 +1,0 @@
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/util/JsfUtil.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/dao/ProdutoDAO.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/bean/ProdutoBean.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/dao/CategoriaDAO.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/entity/Categoria.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/bean/converter/CategoriaConverter.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/util/FabricadeConexao.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/bean/CategoriaBean.java
-/home/felurye/Documentos/GitHub/ppw-sistema-cadastro/trabalho-1/src/main/java/br/edu/ifg/sistemacomercial/entity/Produto.java

@@ -13,8 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "produto")
-public class Produto implements Serializable{
-    
+public class Produto implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -100,7 +100,5 @@ public class Produto implements Serializable{
         }
         return true;
     }
-    
-    
-    
+
 }
